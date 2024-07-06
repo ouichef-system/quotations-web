@@ -1,0 +1,48 @@
+.mealTypeButtons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mealTypeButtons li {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.card-grid {
+    margin-bottom: 1.5rem;
+}
+
+.mealTypeButtons button {
+    width: 200px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border: 3px solid #000; /* Change line color */
+    border-color: #24619f;
+    background-color: transparent;
+    color: #24619f;
+    margin: 5px;
+}
+
+.mealTypeButtons button.selected {
+    background: linear-gradient(to right, #24619f, #3498db); /* Change gradient colors as needed */
+    color: white; /* Change text color when selected */
+    transition: background 1s ease; /* Adjust transition duration as needed */
+}
+
+.submit-button {
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #24619f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    transition: transform 0.2s ease; /* Add transition for smoother animation */
+}
+
+.submit-button:active {
+    transform: scale(0.95); /* Reduce the size slightly when button is clicked */
+}
+
