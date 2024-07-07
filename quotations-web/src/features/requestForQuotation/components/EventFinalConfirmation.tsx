@@ -19,7 +19,7 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
 
     const renderCuisinePreferences = () => {
         if (!requestForQuotation.cuisinePreferences || requestForQuotation.cuisinePreferences.length === 0) {
-            return <Typography variant="body1">No cuisine preferences selected</Typography>;
+            return <Typography variant="body1">No hay preferencias</Typography>;
         }
 
         return requestForQuotation.cuisinePreferences.map((preference, index) => (

@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
-import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Questiongrid } from './QuestionGrid';
@@ -55,11 +54,6 @@ export const HorizontalNonLinearStepper: React.FC<StepperProps> = ({ steps, requ
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
-
-    const handleStep = (step: number) => () => {
-        setActiveStep(step);
-    };
-
     const handleComplete = () => {
         const newCompleted = completed;
         newCompleted[activeStep] = true;
