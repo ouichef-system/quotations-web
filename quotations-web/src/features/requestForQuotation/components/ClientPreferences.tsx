@@ -68,11 +68,11 @@ export const ClientPreferences = ({ onItemSelected, onHandleComplete }: ClientPr
     };
 
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
+        <Grid justifyContent="flex-start" alignItems="flex-start" container spacing={{ xs: 1, sm: 2, md: 2 }} columns={{ xs: 1, sm: 8, md: 12 }}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Divider>¿Alguna preferencia culinaria?</Divider>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={1} sm={2} md={6}>
                 <FormGroup>
                     {clientDetails.cuisinePreferences?.map((preference, index) => (
                         <FormControlLabel
@@ -83,13 +83,13 @@ export const ClientPreferences = ({ onItemSelected, onHandleComplete }: ClientPr
                     ))}
                 </FormGroup>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Divider>¿Alguna restricción alimenticia?</Divider>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <TextField multiline rows={4} id="dietaryRestrictions" label="Restricción alimenticia" variant="outlined" value={clientDetails.dietaryRestrictions} onChange={handleChange} fullWidth />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Button onClick={handleSubmit} type="submit" variant="contained">Siguiente paso</Button>
             </Grid>
         </Grid>

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { MealTypeItem } from "../interfaces/MealTypeItem";
 import { useState } from "react";
 
@@ -11,27 +11,33 @@ export const ButtonList = ({ mealItems, onItemSelected }: ButtonListProps) => {
     const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
 
     const handleItemClick = (id: string) => {
-
         setSelectedItemId(id);
         onItemSelected(id);
-
     };
 
     return (
-        <>
-            <ul className="mealTypeButtons">
-                {mealItems.map(({ id, name }) => (
-                    <li key={id}>
-                        <Button
-                            className={selectedItemId === id ? "selected" : ""}
-                            name="mealType"
-                            value={id}
-                            onClick={() => handleItemClick(id)}>
-                            {name}
-                        </Button>
-                    </li>
-                ))}
-            </ul>
-        </>
+        <Grid container spacing={2} justifyContent="center">
+            {mealItems.map(({ id, name }) => (
+                <Grid key={id} item xs={12} sm={6} md={4} lg={3}>
+                    <Button
+                        className={selectedItemId === id ? "selected" : ""}
+                        onClick={() => handleItemClick(id)}
+                        fullWidth
+                        style={{
+                            backgroundColor: "#75C659", // Custom background color
+                            color: "#fff", // Text color
+                            border: "1px solid #75C659", // Border style
+                            borderRadius: "5px", // Rounded corners
+                            padding: "10px 20px", // Padding
+                            fontSize: "1rem", // Font size
+                            fontWeight: 600, // Font weight
+                            boxShadow: "none", // Remove box shadow if not needed
+                            transition: "background-color 0.3s ease", // Smooth transition
+                        }}>
+                        {name}
+                    </Button>
+                </Grid>
+            ))}
+        </Grid>
     );
-}
+};

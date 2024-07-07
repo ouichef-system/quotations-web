@@ -10,8 +10,8 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
     console.log(requestForQuotation);
     const renderGridItem = (label: string, value?: string | number | boolean | string[]) => {
         return (
-            <Grid item xs={12} md={6} lg={4}>
-                <Typography variant="subtitle1">{label}:</Typography>
+            <Grid item xs={1} sm={4} md={12}>
+                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>{label}:</Typography>
                 <Typography variant="body1">{value ?? 'No especificado'}</Typography>
             </Grid>
         );
@@ -23,7 +23,7 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
         }
 
         return requestForQuotation.cuisinePreferences.map((preference, index) => (
-            <Grid item xs={12} key={index}>
+            <Grid item xs={4} sm={4} md={12} key={index}>
                 <FormControlLabel
                     control={<Checkbox checked={true} />} // Always checked
                     label={preference}
@@ -34,14 +34,14 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
 
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" container spacing={{ xs: 1, sm: 2, md: 2 }} columns={{ xs: 2, sm: 8, md: 12 }}>
                 {renderGridItem('Nombres', requestForQuotation.firstName)}
                 {renderGridItem('Apellidos', requestForQuotation.lastName)}
                 {renderGridItem('Tipo de comida', requestForQuotation.mealType)}
-                {renderGridItem('Cantidad de personas', requestForQuotation.numberOfPeople)}
-                <Grid item xs={12} md={6} lg={4}>
-                    <Typography variant="subtitle1">Preferencias:</Typography>
-                    <Grid container spacing={1}>
+                {renderGridItem('Personas', requestForQuotation.numberOfPeople)}
+                <Grid item xs={2} sm={4} md={12}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>Preferencias:</Typography>
+                    <Grid container spacing={2}>
                         {renderCuisinePreferences()}
                     </Grid>
                 </Grid>

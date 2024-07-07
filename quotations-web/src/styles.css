@@ -1,14 +1,40 @@
+/* Base styles */
 html,
 body {
     background-color: #21232A;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
-    padding: 70px;
     color: white;
+    margin: 0; /* Reset default margin */
+}
+
+/* Add padding only on larger screens */
+@media (min-width: 600px) {
+    html,
+    body {
+        padding: 70px;
+    }
 }
 
 button {
     padding: 15px;
     font-size: 1.3rem;
     margin-left: 5px;
+}
+
+/* Adjust button padding and font size for smaller screens */
+@media (max-width: 600px) {
+    button {
+        padding: 10px;
+        font-size: 1rem;
+        margin-left: 3px;
+    }
+}
+
+.custom-quotations-background {
+    background-image: url('../src/features/assets/background_quotation.svg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px;
 }
