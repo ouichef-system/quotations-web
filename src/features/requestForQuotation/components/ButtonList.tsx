@@ -23,7 +23,7 @@ export const ButtonList = ({ mealItems, onItemSelected }: ButtonListProps) => {
                         className={selectedItemId === id ? "selected" : ""}
                         onClick={() => handleItemClick(id)}
                         fullWidth
-                        style={{
+                        style={ selectedItemId === id ? {
                             backgroundColor: "#75C659", // Custom background color
                             color: "#fff", // Text color
                             border: "1px solid #75C659", // Border style
@@ -33,6 +33,8 @@ export const ButtonList = ({ mealItems, onItemSelected }: ButtonListProps) => {
                             fontWeight: 600, // Font weight
                             boxShadow: "none", // Remove box shadow if not needed
                             transition: "background-color 0.3s ease", // Smooth transition
+                        } : {
+                            border: "1px solid #75C659"
                         }}>
                         {name}
                     </Button>
