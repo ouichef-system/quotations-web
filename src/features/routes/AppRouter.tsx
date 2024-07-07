@@ -8,7 +8,7 @@ export const AppRouter = () => {
             <Route path="welcome" element={<WelcomePage />} />
             <Route path="quotation" element={<RequestForQuotationApp />} />
 
-            <Route path="/" element={<Navigate to="/welcome" />} />
+            <Route path="/*" element={<Navigate to="/welcome" />} />
         </Routes>
     );
 }
