@@ -6,6 +6,7 @@ import { Question } from "../interfaces/Question";
 import { ClientInformation } from "./ClientInformationInput";
 import { ClientPreferences } from "./ClientPreferences";
 import { EventDetails } from "./EventDetails";
+import { useNavigate } from "react-router-dom";
 
 export interface QuestionsTitle {
     stepName: string;
@@ -18,6 +19,8 @@ export interface QuestionsTitlesArray extends Array<QuestionsTitle> {
 
 export const RequestQuotation = () => {
 
+    const navigate = useNavigate();
+    
     const [requestForQuotation, setRequestForQuotation] = useState<IRequestForQuotation>({
     });
 
@@ -101,8 +104,10 @@ export const RequestQuotation = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
+        
         console.log(requestForQuotation);
+
+        navigate('/thank-you');
     };
 
     return (
