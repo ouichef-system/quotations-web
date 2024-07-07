@@ -74,37 +74,55 @@ export const EventDetails = ({ onItemSelected, onHandleComplete }: EventDetailsP
     };
 
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
+        <Grid justifyContent="flex-start" alignItems="flex-start" container spacing={{ xs: 1, sm: 2, md: 2 }} columns={{ xs: 1, sm: 8, md: 12 }}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Typography variant="h6" sx={{ marginBottom: 1 }}>¿Qué tipo de comida deseas?</Typography>
                 <ButtonList mealItems={mealTypes} onItemSelected={handleSelectMealType} />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Divider />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Typography variant="h6" sx={{ marginBottom: 1 }}>¿Cuántas personas estarán presentes?</Typography>
                 <ButtonList mealItems={qtyPeople} onItemSelected={handlePeopleNumber} />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Divider />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Typography variant="h6" sx={{ marginBottom: 1 }}>¿Dónde será el evento?</Typography>
                 <TextField id="location" label="Dirección física" variant="outlined" value={eventDetails.location} onChange={handleChange} fullWidth />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Divider />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Typography variant="h6" sx={{ marginBottom: 1 }}>Fecha y hora del evento</Typography>
                 <DateTimePicker
                     value={eventDetails.reservationDate}
                     onChange={handleDateTimeChange}
                 />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={1} sm={4} md={12}>
                 <Divider />
             </Grid>
-            <Grid item xs={12}>
-               
+            <Grid item xs={1} sm={4} md={12}>
+                <TextField
+                    multiline
+                    rows={4}
+                    id="additionalComments"
+                    label="Algún comentario adicional"
+                    variant="outlined"
+                    value={eventDetails.additionalComments}
+                    onChange={handleChange}
+                    fullWidth
+                />
+            </Grid>
+            <Grid item xs={1} sm={4} md={12}>
+                <Button onClick={handleSubmit} type="submit" variant="contained" fullWidth>
+                    {isSmallScreen ? 'Siguiente' : 'Siguiente paso'}
+                </Button>
+            </Grid>
+        </Grid>
+    );
+};

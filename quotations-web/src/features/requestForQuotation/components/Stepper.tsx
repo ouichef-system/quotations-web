@@ -85,7 +85,7 @@ export const HorizontalNonLinearStepper: React.FC<StepperProps> = ({ steps, requ
                         </button>
                     </Typography>
                     <Box sx={{ flex: '1 1 auto' }} />
-                    <Button onClick={handleReset}>Reiniciar selección</Button>
+                    <Button onClick={handleReset}>Reiniciar</Button>
                 </Box>
             )
         } else {
@@ -95,10 +95,8 @@ export const HorizontalNonLinearStepper: React.FC<StepperProps> = ({ steps, requ
                     disabled={activeStep === 0}
                     onClick={handleBack}
                     sx={{ mr: 1 }}>
-                    Paso anterior
+                    Anterior
                 </Button>
-                <Box sx={{ flex: '1 1 auto' }} />
-                <Button onClick={handleReset}>Volver al inicio</Button>
             </Box>)
         }
 
@@ -106,7 +104,6 @@ export const HorizontalNonLinearStepper: React.FC<StepperProps> = ({ steps, requ
     };
 
     return (
-        <Box sx={{ maxWidth: '100%', overflowX: 'auto' }}>
             <Stepper nonLinear activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                     <Step key={step.stepName} completed={completed[index]}>
@@ -138,4 +135,5 @@ export const HorizontalNonLinearStepper: React.FC<StepperProps> = ({ steps, requ
                     </Step>
                 ))}
             </Stepper>
-   
+    );
+}
