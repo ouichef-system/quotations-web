@@ -1,6 +1,8 @@
 import { Grid, Typography, Button, Paper, Divider } from '@mui/material';
 import './welcomeStyles.css'; 
 import { useNavigate } from 'react-router-dom';
+import backGroundImage from '../assets/welcome_background.svg';
+
 
 export const WelcomePage = () => {
 
@@ -13,11 +15,17 @@ export const WelcomePage = () => {
 
     return (
         <Grid
-            className="custom-background"
             container
             spacing={4}
             justifyContent="center"
             alignItems="center"
+            style={{
+                backgroundImage: `url(${backGroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '100vh',
+                padding: '20px'
+            }}
         >
             <Grid item xs={12}>
                 <Paper elevation={3} className="custom-paper">
