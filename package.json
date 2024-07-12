@@ -1,5 +1,6 @@
 {
   "name": "quotations-web",
+  "homepage": "https://cotizador.ouichef.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
