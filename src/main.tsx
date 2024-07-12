@@ -5,7 +5,7 @@ import './styles.css';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { ouiChefTheme } from './ouiChefTheme';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { QuotationsWebApp } from './QuotationsWebApp';
 
 const rootElement = document.getElementById('root');
@@ -14,10 +14,10 @@ if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <ThemeProvider theme={ouiChefTheme}>
-        <BrowserRouter>
+        <HashRouter>
           <CssBaseline />
           <QuotationsWebApp />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </React.StrictMode>
   );
