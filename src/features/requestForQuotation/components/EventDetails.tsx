@@ -12,7 +12,7 @@ interface EventDetailsProps {
 
 export interface EventDetails {
     mealType?: string;
-    numberOfPeople?: string;
+    numberOfPeople?: number;
     location?: string;
     additionalComments?: string;
     reservationDate?: Dayjs;
@@ -36,7 +36,7 @@ export const EventDetails = ({ onItemSelected, onHandleComplete }: EventDetailsP
 
     const [eventDetails, setEventDetails] = useState<EventDetails>({
         mealType: "",
-        numberOfPeople: "",
+        numberOfPeople: 0,
         location: "",
         additionalComments: "",
         reservationDate: dayjs() // Set initial value to current date and time
@@ -55,9 +55,22 @@ export const EventDetails = ({ onItemSelected, onHandleComplete }: EventDetailsP
 
     const handlePeopleNumber = (value: string) => {
         const qtyPeopleAnswer = qtyPeople.find(qty => qty.id === value);
-        setEventDetails(prevState => ({ ...prevState, numberOfPeople: qtyPeopleAnswer?.name }));
+        setEventDetails(prevState => ({ ...prevState, numberOfPeople: convertStringToNumber(qtyPeopleAnswer?.name) }));
     };
 
+    const convertStringToNumber = (str: string | undefined): number => {
+        switch (str) {
+            case "2 personas":
+                return 2;
+            case "3 a 6 personas":
+                return 6;
+            case "Más de 6 personas":
+                return 10;
+            default:
+                return 0;
+        }
+    };
+    
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.target;
         setEventDetails(prevState => ({

@@ -7,6 +7,7 @@ import { ClientInformation } from "./ClientInformationInput";
 import { ClientPreferences } from "./ClientPreferences";
 import { EventDetails } from "./EventDetails";
 import { useNavigate } from "react-router-dom";
+import api from "../../../commons/api/api";
 
 export interface QuestionsTitle {
     stepName: string;
@@ -102,12 +103,26 @@ export const RequestQuotation = () => {
     ];
 
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        
-        console.log(requestForQuotation);
+
+    console.log(requestForQuotation);
+
+    try {
+        const response = await api.post<IRequestForQuotation>("/request-for-quotations", requestForQuotation);
+
+        console.log(response);
+
+        if (response.status === 200) {
+            console.log("Request for quotation submitted successfully!");
+        } else {
+            console.error("Failed to submit request for quotation.");
+        }
 
         navigate('/thank-you');
+    } catch (error) {
+        console.error("Error submitting request for quotation:", error);
+    }
     };
 
     return (

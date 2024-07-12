@@ -5,7 +5,7 @@ export interface IRequestForQuotation {
     firstName?: string;
     lastName?: string;
     mealType?: string;
-    numberOfPeople?: string;
+    numberOfPeople?: number;
     cuisinePreferences?: string[];
     location?: string;
     reservationDate?: Dayjs;

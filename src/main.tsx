@@ -14,7 +14,7 @@ if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <ThemeProvider theme={ouiChefTheme}>
-        <BrowserRouter basename='/quotations-web/'>
+        <BrowserRouter>
           <CssBaseline />
           <QuotationsWebApp />
         </BrowserRouter>
