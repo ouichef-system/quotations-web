@@ -10,8 +10,8 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
     console.log(requestForQuotation);
     const renderGridItem = (label: string, value?: string | number | boolean | string[]) => {
         return (
-            <Grid item xs={1} sm={4} md={12}>
-                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>{label}:</Typography>
+            <Grid item xs={2} sm={4} md={12}>
+                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>{label}</Typography>
                 <Typography variant="body1">{value ?? 'No especificado'}</Typography>
             </Grid>
         );
@@ -23,11 +23,14 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
         }
 
         return requestForQuotation.cuisinePreferences.map((preference, index) => (
-            <Grid item xs={4} sm={4} md={12} key={index}>
-                <FormControlLabel
-                    control={<Checkbox checked={true} />} // Always checked
-                    label={preference}
-                />
+            <Grid item xs={6} sm={8} md={12} key={index}>
+                {
+                    preference === "Otra (especificar)" ? (
+                        <FormControlLabel control={<Checkbox checked={true} />} label={requestForQuotation.otherCuisinePrefereces} />
+                    ) : (
+                        <FormControlLabel control={<Checkbox checked={true} />} label={preference} />
+                    )
+                }
             </Grid>
         ));
     };
@@ -40,16 +43,13 @@ export const EventFinalConfirmation = ({ requestForQuotation }: EventFinalConfir
                 {renderGridItem('Tipo de comida', requestForQuotation.mealType)}
                 {renderGridItem('Personas', requestForQuotation.numberOfPeople)}
                 <Grid item xs={2} sm={4} md={12}>
-                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>Preferencias:</Typography>
+                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>Preferencias</Typography>
                     <Grid container spacing={2}>
                         {renderCuisinePreferences()}
                     </Grid>
                 </Grid>
                 {renderGridItem('Lugar del evento', requestForQuotation.location)}
                 {renderGridItem('Fecha del evento', requestForQuotation.reservationDate?.toDate().toLocaleString('es-PA'))}
-                {renderGridItem('Tipo de cocina', requestForQuotation.stoveType)}
-                {renderGridItem('Cantidad de ornillas', requestForQuotation.numberOfBurners?.toString())}
-                {renderGridItem('¿Tienes horno?', requestForQuotation.hasWorkingOven?.toString())}
                 {renderGridItem('Algun chef en particular', requestForQuotation.chefPreference)}
                 {renderGridItem('Restricciones alimenticias', requestForQuotation.dietaryRestrictions)}
                 {renderGridItem('Comentarios adicionales', requestForQuotation.additionalComments)}

@@ -104,7 +104,7 @@ export const EventDetails = ({ onItemSelected, onHandleComplete }: EventDetailsP
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
                 <Typography variant="h6" sx={{ marginBottom: 1 }}>¿Dónde será el evento?</Typography>
-                <TextField id="location" label="Dirección física" variant="outlined" value={eventDetails.location} onChange={handleChange} fullWidth />
+                <TextField size="small" required id="location" label="Dirección física" variant="outlined" value={eventDetails.location} onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
                 <Divider />
@@ -121,6 +121,7 @@ export const EventDetails = ({ onItemSelected, onHandleComplete }: EventDetailsP
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
                 <TextField
+                    size="small"
                     multiline
                     rows={4}
                     id="additionalComments"

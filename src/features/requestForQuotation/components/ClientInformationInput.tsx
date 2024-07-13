@@ -43,24 +43,46 @@ export const ClientInformationInput = ({ onItemSelected, onHandleComplete }: Cli
                 </Divider>
             </Grid>
             <Grid item xs={1} sm={2} md={6}>
-                <TextField id="firstName" label="Primer Nombre" variant="outlined" value={clientDetails.firstName} onChange={handleChange} fullWidth />
+                <TextField required 
+                 size="small"
+                 id="firstName" label="Primer Nombre" 
+                 variant="outlined" value={clientDetails.firstName} 
+                 onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={1} sm={2} md={6}>
-                <TextField id="lastName" label="Apellidos" variant="outlined" value={clientDetails.lastName} onChange={handleChange} fullWidth />
+                <TextField required
+                size="small"
+                id="lastName" 
+                label="Apellidos" 
+                variant="outlined" 
+                value={clientDetails.lastName} 
+                onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
                 <Divider>Datos de contacto</Divider>
             </Grid>
             <Grid item xs={1} sm={2} md={6}>
-                <TextField id="contactEmail" label="Correo" variant="outlined" value={clientDetails.contactEmail} onChange={handleChange} fullWidth />
+                <TextField required
+                size="small"
+                id="contactEmail" 
+                label="Correo" 
+                variant="outlined" 
+                value={clientDetails.contactEmail} 
+                onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={1} sm={2} md={6}>
-                <TextField id="contactPhoneNumber" label="Telefono" variant="outlined" value={clientDetails.contactPhoneNumber} onChange={handleChange} fullWidth />
+                <TextField required
+                size="small" 
+                id="contactPhoneNumber" 
+                label="Telefono" 
+                variant="outlined" 
+                value={clientDetails.contactPhoneNumber} 
+                onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
-                <Button onClick={handleSubmit} type="submit" variant="contained">Siguiente</Button>
+                <Button size="small" onClick={handleSubmit} type="submit" variant="contained">Siguiente</Button>
             </Grid>
         </Grid>
     );

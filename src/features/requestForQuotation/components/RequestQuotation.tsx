@@ -69,7 +69,8 @@ export const RequestQuotation = () => {
             ...requestForQuotation,
             cuisinePreferences: cusinePreferences,
             dietaryRestrictions: value.dietaryRestrictions,
-            chefPreference: value.chefPreference
+            chefPreference: value.chefPreference,
+            otherCuisinePrefereces: value.otherPreferences
         }));
     };
 

@@ -11,6 +11,7 @@ export interface ClientPreferences {
     cuisinePreferences?: CuisinePreferencesChek[];
     chefPreference?: string;
     dietaryRestrictions?: string;
+    otherPreferences?: string;
 }
 
 interface CuisinePreferencesChek {
@@ -22,7 +23,6 @@ export const ClientPreferences = ({ onItemSelected, onHandleComplete }: ClientPr
 
     const [clientDetails, setClientDetails] = useState<ClientPreferences>({
         cuisinePreferences: [
-            { isChecked: false, cuisinePreference: "No tengo preferencia" },
             { isChecked: false, cuisinePreference: "Cocina italiana" },
             { isChecked: false, cuisinePreference: "Cocina criolla" },
             { isChecked: false, cuisinePreference: "Cocina española" },
@@ -32,7 +32,8 @@ export const ClientPreferences = ({ onItemSelected, onHandleComplete }: ClientPr
             { isChecked: false, cuisinePreference: "Otra (especificar)" }
         ],
         chefPreference: "",
-        dietaryRestrictions: ""
+        dietaryRestrictions: "",
+        otherPreferences: ""
     });
 
     const handleSubmit = () => {
@@ -67,6 +68,18 @@ export const ClientPreferences = ({ onItemSelected, onHandleComplete }: ClientPr
         }));
     };
 
+    const renderTextboxForExtraFood = () => {
+
+        if (clientDetails.cuisinePreferences?.some(x => x.isChecked === true && x.cuisinePreference === "Otra (especificar)")) {
+
+            return (
+                <Grid item xs={1} sm={4} md={12}>
+                    <TextField size="small" multiline rows={2} id="otherPreferences" label="Especificar preferencia" variant="outlined" value={clientDetails.otherPreferences} onChange={handleChange} fullWidth />
+                </Grid>
+            );
+        }
+    };
+
     return (
         <Grid justifyContent="flex-start" alignItems="flex-start" container spacing={{ xs: 1, sm: 2, md: 2 }} columns={{ xs: 1, sm: 8, md: 12 }}>
             <Grid item xs={1} sm={4} md={12}>
@@ -82,6 +95,9 @@ export const ClientPreferences = ({ onItemSelected, onHandleComplete }: ClientPr
                         />
                     ))}
                 </FormGroup>
+                {
+                    renderTextboxForExtraFood()
+                }
             </Grid>
             <Grid item xs={1} sm={4} md={12}>
                 <Divider>¿Alguna restricción alimenticia?</Divider>

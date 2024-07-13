@@ -7,11 +7,9 @@ export interface IRequestForQuotation {
     mealType?: string;
     numberOfPeople?: number;
     cuisinePreferences?: string[];
+    otherCuisinePrefereces?: string;
     location?: string;
     reservationDate?: Dayjs;
-    stoveType?: string;
-    numberOfBurners?: number;
-    hasWorkingOven?: boolean;
     chefPreference?: string;
     dietaryRestrictions?: string;
     additionalComments?: string;
